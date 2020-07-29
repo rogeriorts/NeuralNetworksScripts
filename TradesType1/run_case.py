@@ -96,12 +96,12 @@ def evaluate_model(trainX, trainy, testX, testy):
 	# scale data
 	trainX, testX = scale_data(trainX, testX,True)
 	model = Sequential()
-	model.add(Conv1D(filters=64, kernel_size=3, activation='relu', input_shape=(n_timesteps,n_features)))
-	model.add(Conv1D(filters=64, kernel_size=3, activation='relu'))
+	model.add(Conv1D(filters=5, kernel_size=3, activation='relu', input_shape=(n_timesteps,n_features)))
+	model.add(Conv1D(filters=10, kernel_size=3, activation='relu'))
 	model.add(Dropout(0.5))
 	model.add(MaxPooling1D(pool_size=2))
 	model.add(Flatten())
-	model.add(Dense(64, activation='relu'))
+	model.add(Dense(20, activation='relu'))
 	model.add(Dense(n_outputs, activation='softmax'))
 	model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 	# fit network
